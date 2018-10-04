@@ -6,7 +6,7 @@ import datetime
 
 
 def get_host_info(url):
-    return url.split(":")[1].split("//")[-1]
+    return url.split(":")[1].split("//")[-1] # just ip information
 
 def get_metrics(url):
     raw_text = requests.get(url).text
