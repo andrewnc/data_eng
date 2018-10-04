@@ -40,4 +40,4 @@ def monitor(interval=600):
 
 
 if __name__ == "__main__":
-    monitor()
+    monitor(5)
