@@ -4,6 +4,7 @@ from prometheus_client.parser import text_string_to_metric_families
 import time
 import datetime
 
+host_list = ['192.168.65.1', '192.168.65.2','192.168.65.3','192.168.65.4','192.168.65.5','192.168.65.6','192.168.65.7','192.168.65.8','192.168.65.9']
 
 def get_host_info(url):
     return url.split(":")[1].split("//")[-1] # just ip information
@@ -29,7 +30,6 @@ def post_metrics(metrics):
         pass
 
 def monitor(interval=600):
-    host_list = ['192.168.65.1', '192.168.65.2','192.168.65.3','192.168.65.4','192.168.65.5','192.168.65.6','192.168.65.7','192.168.65.8','192.168.65.9']
     url_list = ["http://{}:9182/metrics".format(x) for x in host_list]
     while True:
         for url in url_list:
