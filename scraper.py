@@ -2,6 +2,7 @@ import requests
 import json
 from prometheus_client.parser import text_string_to_metric_families
 import time
+import datetime
 
 
 def get_host_info(url):
@@ -15,6 +16,9 @@ def get_metrics(url):
         for sample in family.samples:
             metrics[sample[0]] = sample[2]
     metrics['host'] = get_host_info(url)
+    now = datetime.datetime.now()
+    timestamp = now.strftime("%d_%m_%Y_%H_%M_%S")
+    metrics['timestamp'] = timestamp
     return metrics
 
 def post_metrics(metrics):
@@ -35,6 +39,7 @@ def monitor(interval=600):
                 metrics = {}
             
             if metrics != {}:
+                print("posting for {} at {}".format(metrics['host'], metrics['timestamp']))
                 post_metrics(metrics)
         time.sleep(interval)
 
