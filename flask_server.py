@@ -10,6 +10,6 @@ def hello():
         hosts.append(query_for_machine(host))
     return render_template("index.html", metrics=hosts)
 
-d
+
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
