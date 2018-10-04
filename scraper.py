@@ -40,6 +40,7 @@ def monitor(interval=600):
             
             if metrics != {}:
                 print("posting for {} at {}".format(metrics['host'], metrics['timestamp']))
+                print(metrics)
                 post_metrics(metrics)
         time.sleep(interval)
 
