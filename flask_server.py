@@ -7,8 +7,8 @@ app = Flask(__name__)
 def hello():
     hosts = []
     for host in scraper.host_list:
+        print(host)
         hosts.append(query_for_machine(host))
-    print(hosts)
     return render_template("index.html", metrics=hosts)
 
 
