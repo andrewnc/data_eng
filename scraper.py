@@ -20,6 +20,8 @@ def get_metrics(url):
     now = datetime.datetime.now()
     timestamp = now.strftime("%d_%m_%Y_%H_%M_%S")
     metrics['timestamp'] = timestamp
+    print('this is the metrics')
+    print(metrics)
     return metrics
 
 def post_metrics(metrics):
