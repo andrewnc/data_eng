@@ -9,7 +9,7 @@ def hello():
     for host in scraper.host_list:
         print(query_for_machine(host))
         hosts.append(query_for_machine(host))
-    return render_template("index.html", metrics=hosts)
+    return render_template("index.html", metrics=hosts.text)
 
 
 @app.route("/createHighCharts.js")
