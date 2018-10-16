@@ -8,7 +8,8 @@ def hello():
     hosts = '['
     for host in scraper.host_list:
         hosts += query_for_machine(host)
-        hosts += ', '
+        hosts += ','
+    hosts = hosts[:-1]
     hosts += ']'
     return render_template("index.html", metrics=hosts)
 
