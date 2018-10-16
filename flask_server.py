@@ -10,7 +10,7 @@ def hello():
         hosts.append(query_for_machine(host))
     json = ''.join(hosts)
     print(json)
-    return render_template("index.html", metrics=json)
+    return render_template("index.html", metrics=hosts)
 
 
 @app.route("/createHighCharts.js")
