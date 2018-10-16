@@ -7,9 +7,10 @@ app = Flask(__name__)
 def hello():
     hosts = []
     for host in scraper.host_list:
-        print(query_for_machine(host))
         hosts.append(query_for_machine(host))
-    return render_template("index.html", metrics=hosts.text)
+    json = ''.join(hosts)
+    print(json)
+    return render_template("index.html", metrics=hosts)
 
 
 @app.route("/createHighCharts.js")
