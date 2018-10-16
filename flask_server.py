@@ -14,7 +14,7 @@ def hello():
 
 @app.route("/createHighCharts.js")
 def send_js():
-    return send_from_directory('/', 'createHighCharts.js')
+    return send_from_directory('', 'createHighCharts.js')
 
 
 if __name__ == "__main__":
