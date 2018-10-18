@@ -19,7 +19,7 @@ def send_js():
     return send_from_directory('', 'createHighCharts.js')
 
 @app.route("/highcharts.src.js")
-def send_js():
+def send_highcharts():
     return send_from_directory('', 'highcharts.src.js')
 
 
