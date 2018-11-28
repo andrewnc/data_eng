@@ -31,8 +31,9 @@ def get_metrics(url):
 
 def post_metrics(metrics):
     try:
-        requests.post("http://admin:slytherin@127.0.0.1:5984/resources", json=metrics)
-    except:
+        requests.post("http://127.0.0.1:5984/resources", json=metrics)
+    except Exception as e:
+        print(e)
         print("failed to log") # insert monitoring here
         pass
 
