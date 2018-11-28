@@ -4,7 +4,14 @@ from prometheus_client.parser import text_string_to_metric_families
 import time
 import datetime
 
-host_list = ['192.168.65.1', '192.168.65.2','192.168.65.3','192.168.65.4','192.168.65.5','192.168.65.6','192.168.65.7','192.168.65.8','192.168.65.9']
+
+with open("hosts.txt") as f:
+    s = f.read()
+
+host_list = s.split("\n")[:-1]
+
+
+# host_list = ['192.168.65.1', '192.168.65.2','192.168.65.3','192.168.65.4','192.168.65.5','192.168.65.6','192.168.65.7','192.168.65.8','192.168.65.9']
 
 def get_host_info(url):
     return url.split(":")[1].split("//")[-1] # just ip information
