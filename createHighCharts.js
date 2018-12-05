@@ -46,11 +46,13 @@ for (let json of fullJson) {
         p++;
     }
     // console.log(series);
-    seriesTotal.push({
-        name: series['host'][0],
-        color: colorArray[k],
-        data: series
-    });
+    if(series && series['host'] && series['host'][0]){
+        seriesTotal.push({
+            name: series['host'][0],
+            color: colorArray[k],
+            data: series
+        });
+    }
     k++;
 }
 
